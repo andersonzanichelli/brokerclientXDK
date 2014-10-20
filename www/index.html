@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<!--HTML5 doctype-->
+<html>
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css" class="uib-framework-theme">
+		<meta charset="UTF-8">
+		<link rel="stylesheet" type="text/css" href="css/index_main.less.css" class="main-less">
+		<link rel="stylesheet" type="text/css" href="css/background.css">
+		<title>Broker Client</title>
+		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0">
+		<style type="text/css">
+			/* Prevent copy paste for all elements except text fields */
+			*  { -webkit-user-select:none; -webkit-tap-highlight-color:rgba(255, 255, 255, 0); }
+			input, textarea  { -webkit-user-select:text; }
+		</style>
+		<script src="intelxdk.js"></script>
+		<script type="text/javascript">
+			/* Intel native bridge is available */
+			var onDeviceReady=function(){
+			//hide splash screen
+			intel.xdk.device.hideSplashScreen();
+			};
+			document.addEventListener("intel.xdk.device.ready",onDeviceReady,false);
+		</script>
+		<script type="application/javascript" src="js/jquery.min.js"></script>
+		<script type="application/javascript" src="marginal/marginal-position.min.js"></script>
+		<script src="cordova.js"></script>
+	</head>
+
+	<body>
+		<!-- content goes here-->
+		<div class="uwrap">
+			<div class="upage" id="mainpage">
+				<div class="upage-outer">
+					<div class="uib-header header-bg container-group inner-element uib_w_1 uib-header-fixed" data-uib="layout/header" data-ver="0">
+						<h2>Broker Client</h2>
+						<button id="btnConfig" onclick="window.location.href='config.html'" class="btn btn-sm">
+							<span class="glyphicon glyphicon-th-list"></span>
+						</button>
+					</div>
+					<div class="upage-content" id="mainsub">
+
+						<div class="grid grid-pad urow uib_row_3 row-height-3" data-uib="layout/row" data-ver="0">
+
+							<div class="col uib_col_2 col-0" data-uib="layout/col" data-ver="0">
+								<div class="widget-container content-area vertical-col">
+
+									<span class="uib_shim"></span>
+								</div>
+							</div><span class="uib_shim"></span>
+						</div>
+
+						<div class="grid grid-pad urow uib_row_4 row-height-4" data-uib="layout/row" data-ver="0">
+							<div class="col uib_col_3 col-0_12-12" data-uib="layout/col" data-ver="0">
+								<div class="widget-container content-area vertical-col">
+									<button type="button" class="btn widget uib_w_2 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="0" id="btnSignIn" onclick="window.location.href='signin.html'"><i class="glyphicon glyphicon-list-alt button-icon-left" data-position="left"></i>Sign In</button>
+									<button type="button" class="btn widget uib_w_3 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="0" id="btnLogIn" onclick="window.location.href='login.html'"><i class="glyphicon glyphicon-user button-icon-left" data-position="left"></i>Log In</button><span class="uib_shim"></span>
+								</div>
+							</div>
+							<span class="uib_shim"></span>
+						</div>
+					</div>
+					<!-- /upage-content -->
+
+				</div>
+				<!-- /upage-outer -->
+
+			</div>
+			<!-- /upage -->
+
+		</div>
+		<!-- /uwrap -->
+	</body>
+
+</html>
