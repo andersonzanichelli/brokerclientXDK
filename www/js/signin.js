@@ -5,6 +5,7 @@ signin.componentes = function() {
     signin.serverPort = $('#txtServerPort');
     signin.warning = $('#warning');
     signin.btnSave = $('#btnSave');
+    signin.btnCancel = $('#btnCancel');
     
     signin.name = $('#txtName');
     signin.email = $('#txtEmail');
@@ -26,6 +27,7 @@ signin.init = function(){
     signin.email.on('focusout', signin.verifyEmail);
     signin.confirm.on('focusout', signin.verifyPassword);
     signin.btnSave.on('click', signin.save);
+    signin.btnCancel.on('click', signin.cancel);
 };
 
 signin.verifyName = function() {
@@ -68,8 +70,23 @@ signin.save = function() {
     
     if(signin.emailAvailable && signin.passwordValid && signin.nameValid) {
         signin.warning.html("Please wait. Saving...");
+        var user = 'username=' + signin.name.val() + '&email=' + signin.email.val() + '&password=' + calcSHA1(signin.password.val());
+        
+        intel.xdk.device.getRemoteData(signin.serverAddress.val() + "/users/adduser", "POST", user, "success_add", "error_add");
     }
 }
+
+function success_add(data) {
+    var result = $.parseJSON(data);
+    signin.warning.removeClass('alert alert-warning');
+    signin.warning.addClass('alert alert-success');
+    signin.warning.html('Success on save!');
+    setTimeout(function(){signin.btnCancel.trigger('click')}, 800);
+};
+
+function error_add(data) {
+    intel.xdk.notification.alert('Error on saving user!','Error', 'OK');
+};
 
 signin.verifyConfig = function() {
     if(signin.serverAddress.val() === "" && signin.serverPort.val() === "") {
