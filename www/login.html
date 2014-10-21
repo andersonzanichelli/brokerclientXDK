@@ -12,10 +12,14 @@
     <script src="cordova.js"></script>
     <script type="application/javascript" src="js/jquery.min.js"></script>
     <script type="application/javascript" src="marginal/marginal-position.min.js"></script>
-      <script type="application/javascript" src="js/sha1.js"></script>
+      <script type="text/javascript" src="js/sgdb.js"></script>
+      <script type="text/javascript" src="js/login.js"></script>
+      <script type="text/javascript" src="js/sha1.js"></script>
   </head>
 
   <body>
+    <input type="hidden" id="txtServerAddress">
+    <input type="hidden" id="txtServerPort">
     <div class="uwrap">
       <div class="upage" id="mainpage">
         <div class="upage-outer">
@@ -48,13 +52,14 @@
                     <label class="narrow-control" for="txtPassword"></label>
                     <input class="wide-control form-control default input-lg" type="password" placeholder="Password" id="txtPassword">
                   </div>
-                  <button type="button" class="btn widget uib_w_4 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="0" id="btnLogin"><i class="glyphicon glyphicon-ok button-icon-left" data-position="left"></i>Log In</button>
+                  <button type="button" class="btn widget uib_w_4 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="0" id="btnLogin" ><i class="glyphicon glyphicon-ok button-icon-left" data-position="left"></i>Log In</button>
                   <button type="button" class="btn widget uib_w_5 d-margins btn-lg btn-primary" data-uib="twitter%20bootstrap/button" data-ver="0" id="btnCancel"
                   onclick="window.location.href='index.html'"><i class="glyphicon glyphicon-remove button-icon-left" data-position="left"></i>Cancel</button>
                   <span class="uib_shim"></span>
                 </div>
               </div>
               <span class="uib_shim"></span>
+              <span id="warning" class="alert alert-warning"></span>
             </div>
           </div>
           <!-- /upage-content -->

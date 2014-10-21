@@ -47,7 +47,7 @@ $( document ).ready(function() {
     if(sgdb.getopenDb()) {
         sgdb.db = sgdb.createTable();
     } else {
-        alert('No database connection');
+        intel.xdk.notification.alert('No database connection', 'Warning', 'OK');
     }
     
     config.init();

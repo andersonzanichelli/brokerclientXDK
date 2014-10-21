@@ -77,7 +77,6 @@ signin.save = function() {
 }
 
 function success_add(data) {
-    var result = $.parseJSON(data);
     signin.warning.removeClass('alert alert-warning');
     signin.warning.addClass('alert alert-success');
     signin.warning.html('Success on save!');
@@ -135,7 +134,7 @@ $( document ).ready(function() {
     if(sgdb.getopenDb()) {
         sgdb.db = sgdb.createTable();
     } else {
-        alert('No database connection');
+        intel.xdk.notification.alert('No database connection', 'Warning', 'OK');
     }
     
     signin.init();
