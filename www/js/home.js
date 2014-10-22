@@ -3,7 +3,10 @@ var home = {};
 home.componentes = function(){
     home.serverAddress = $('#txtServerAddress');
     home.serverPort = $('#txtServerPort');
+    
     home.divServices = $('#services');
+    home.divUser = $('#user');
+    home.divPreferences = $('#preferences');
     home.lista = $('#lista');
     
     home.btnServices = $('#btnServices');
@@ -17,12 +20,19 @@ home.init = function() {
     home.componentes();
     sgdb.selectConfig();
     
+    home.divServices.hide();
+    home.divUser.hide();
+    home.divPreferences.hide();
+    
     home.btnServices.on('click', home.showServices);
     home.btnUser.on('click', home.showUser);
     home.btnPreferences.on('click', home.showPreferences);
 };
 
 home.showServices = function() {
+    home.divUser.hide();
+    home.divPreferences.hide();
+    
     if(!home.preenchido) {
         home.findServices();
     }
@@ -30,20 +40,20 @@ home.showServices = function() {
     if(! home.divServices.is(':visible')) {
         home.divServices.show();
     }
-    //home.divUser.hide();
-    //home.divPreferences.hide();
 };
 
 home.showUser = function() {
     home.divServices.hide();
-    //home.divUser.show();
-    //home.divPreferences.hide();
+    home.divPreferences.hide();
+    
+    home.divUser.show();
 };
 
 home.showPreferences = function() {
     home.divServices.hide();
-    //home.divUser.hide();
-    //home.divPreferences.show();
+    home.divUser.hide();
+    
+    home.divPreferences.show();
 };
 
 home.findServices = function() {
